@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { CarritoContext } from '../Carrito/Carrito';
+import Accordion from 'react-bootstrap/Accordion';
 import './productos.css';
 
 export default function DetalleProductos() {
@@ -61,65 +62,38 @@ export default function DetalleProductos() {
   };
 
   return (
-    <main className="container my-4">
-      <div className="container-presentacion row mb-4">
-        <div className="card-productos col-md-6 text-center">
+    <main className="container">
+      <div className="container-presentacion">
+        <div className="card-productos">
           <h1>{producto.nombre}</h1>
-          <img 
-            src={producto.imagen_url} 
-            className="card-productos-img img-fluid" 
-            alt={producto.nombre || "producto-detalle"} 
-          />
+          <img src={producto.imagen_url} className="card-productos-img" alt={producto.nombre || "producto-detalle"} />
         </div>
 
-        <div className="card-precios">
-          <div className="card-precios-detalles mb-3">
-            <p className="mb-1">
+          <div className="card-precios-detalles">
+            <p>
               Precio neto: $<span id="precioProducto">{formatearPrecio(precioNeto)}</span>
             </p>
-            <p className="mb-1">
+            <p>
               IVA (19%): $<span id="precioIVA">{formatearPrecio(montoIVA)}</span>
             </p>
-            <p className="h5 fw-bold text-success">
+            <p className='precio-total'>
               Precio TOTAL: $<span id="precioTotal">{formatearPrecio(precioTotal)}</span>
             </p>
-          </div>
 
-          <button type="button" className="btn btn-info btn-lg btn-carrito text-white" onClick={agregarClick}>
-            Agregar al carrito
-          </button>
-        </div>
+            <button type="button" className="btn btn-info btn-carrito button-agregar" onClick={agregarClick}>
+              Agregar al carrito
+            </button>
+          </div>
       </div> 
 
-      <div className="accordion" id="accordionPanelsStayOpenExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingOne">
-            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-              Descripción del producto
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne">
-            <div className="accordion-body">
-              {producto.descripcion || 'Sin descripción disponible.'}
-            </div>
-          </div>
-        </div>
-
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingTwo">
-            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Información del vinilo
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo">
-            <div className="accordion-body">
-              <p><strong>Código:</strong> {producto.codigo}</p>
-              <p><strong>Categoría / Género:</strong> {producto.categoria_nombre || 'General'}</p>
-              <p><strong>Unidades disponibles:</strong> {producto.stock}</p>
-            </div>
-          </div>
-        </div>
-      </div> 
+      <Accordion className="acordeon-descripcion">
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Descripción</Accordion.Header>
+        <Accordion.Body>
+          {producto.descripcion}
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
     </main>
   );
 }

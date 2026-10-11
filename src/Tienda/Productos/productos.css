@@ -20,39 +20,6 @@
     width: 100%;
 }
 
-.carousel-posicion{
-    margin: auto;
-    margin-top: 15px;
-    background-color: white;
-    width: 80%;
-    margin-bottom: 120px;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(90%);
-}
-
-.cartel{
-    font-size: 45px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    margin-bottom: 12px;
-    margin-top: 12px;
-    margin-left: 180px;
-    margin-right: 180px;
-}
-
-footer{
-    width: 100%;
-    position: relative;
-    clear: both;
-    background-color: rgb(36, 36, 94);
-    color: white;
-    padding-bottom: 5%;
-}
-
 /*-----------------------------------------------------------*/
 
 .container-presentacion{
@@ -62,25 +29,20 @@ footer{
     margin-bottom: 8%;
 }
 
-.card-productos{
-    height: 600px;
-    width: 850px;
-    padding: 4px;
-}
-
 .card-precios{
     box-shadow: 0 4px 12px rgba(85, 25, 25, 0.1);
     margin-top: 120px;
-    height: 300px;
-    width: 425px;
+    height: 500px;
+    width: 525px;
     padding: 4px;
     font-size: large;
     font-weight: bold;
 }
 
 .card-precios-detalles{
-    margin-left: 20px;
-    margin-top: 30px;
+    margin-left: 280px;
+    margin-top: 150px;
+    
 }
 
 .card-productos-img{
@@ -89,9 +51,45 @@ footer{
     object-fit:contain;
 }
 
-.accordion{
-    margin-bottom: 70px;
-    position: relative;
-    z-index: 2;
-    width: 50%;
+.button-agregar{
+    height: 50px;
+    width: 300px;
+    font-style:normal;
+    font-weight: bold;
+    color: white !important;
+    background-color: green !important;
+    border-color: black !important;
+}
+
+.precio-total{
+    color: coral;
+    font-size: larger;
+    font-weight: bold;
+}
+
+/*-----------------------------------------------------------*/
+
+.acordeon-descripcion{
+    margin-bottom: 150px;
+}
+
+.acordeon-descripcion .accordion-button{
+    background-color: rgb(68, 64, 64);
+    border-color:rgb(206, 172, 133) ;
+    color: white;
+}
+
+.acordeon-descripcion .accordion-button:not(.collapsed){
+    background-color: rgb(68, 64, 64);
+    border-color:rgb(206, 172, 133) ;
+    color: white;
+}
+
+.acordeon-descripcion .accordion-button:focus{
+    box-shadow: none;
+    border-color: rgba(85, 25, 25, 0.1);
+}
+
+.accordion-descripcion .accordion-button::after{
+    filter: invert(1) brightness(2);
 }
