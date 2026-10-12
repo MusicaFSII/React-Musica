@@ -1,31 +1,16 @@
 .main-blog{
-    height: 300px;
-    width: 1500px;
+    width: 700px;
     max-width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: 220px;
     margin-right: 220px;
-    display: flex;
-    align-items: flex-start;
+    align-items:flex-start
 }
 
 .titulo-blog{
-    margin-left: 20px;
+    margin-left: 50px;
     margin-bottom: 50px;
+    
 }
 
-.parrafo-cfg{
-    flex: 1;
-    color: white;
-    margin-top: 200px;
-    margin-right: 40px;
-    line-height: 1.6; 
-}
-
-.parrafo-blogs{
-    color: white;
-    margin-left: 80px;
-    margin-bottom: 90px;
-    width: 80%;
-}

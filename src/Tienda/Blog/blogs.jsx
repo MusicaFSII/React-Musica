@@ -46,14 +46,6 @@ export default function Blog() {
     });
   };
 
-  const recargarLista = () => {
-    setModo('lista');
-    setBlogEditable(null);
-    setTitulo('');
-    setContenido('');
-    setImagen(null);
-  };
-
   const controlCrear = async (e) => {
     e.preventDefault();
     if (!imagen) return alert("Por favor, selecciona una imagen.");
@@ -173,10 +165,10 @@ export default function Blog() {
 
   return (
     <div>
-      <div>
-        <h2>Blogs Recientes</h2>
+      <div className="button-crear-blog">
+        <h2>Blogs</h2>
         <Button variant="primary" onClick={() => setModo('crear')}>
-          Crear Nuevo Blog
+          Crear Blog
         </Button>
       </div>
 
@@ -186,7 +178,7 @@ export default function Blog() {
         <div>
           {blogs.map((blog) => (
             <div key={blog.id}>
-              <Card className="main-blog">
+              <Card className="main-blog flex-row">
                 <Card.Img src={blog.imagen_blog} />
                 <Card.Body>
                   <Card.Title className="titulo-blog">{blog.titulo}</Card.Title>
