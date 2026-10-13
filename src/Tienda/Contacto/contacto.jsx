@@ -57,9 +57,9 @@ function Contacto() {
   };
 
   const tarjetasInfo = [
-    { titulo: "Telefono", texto: "poner telefono", icono: <BsPhone/>  },
-    { titulo: "Email", texto: "poner correo", icono: <BsEnvelopeAt/> },
-    { titulo: "Direccion", texto: "poner direccion", icono: <BsPinMapFill/> }
+    { titulo: "Telefono", texto: "Proximamente", icono: <BsPhone/>  },
+    { titulo: "Email", texto: "Proximamente", icono: <BsEnvelopeAt/> },
+    { titulo: "Direccion", texto: "Proximamente", icono: <BsPinMapFill/> }
   ];
 
   return (

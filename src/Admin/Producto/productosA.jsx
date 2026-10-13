@@ -3,22 +3,32 @@ import './registroProductos.css';
 
 export default function ProductosAdmin() {
   const [productos, setProductos] = useState([]);
+  const [categorias, setCategorias] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [editando, setEditando] = useState(false);
   const [form, setForm] = useState({
     codigo: '',
     nombre: '',
     precio: '',
     imagen: '',
     descripcion: '',
-    stock: 0
+    stock: 0,
+    categoria:'',
+    en_oferta:'',
+    porc_oferta:''
   });
 
   useEffect(() => {
     const cargarProductos = async () => {
       try {
-        const res = await fetch('/api/productos');
-        const data = await res.json();
-        setProductos(data.productos || []);
+        const resProducto = await fetch('/api/productos');
+        const dataProducto = await resProducto.json();
+        setProductos(dataProducto.productos || []);
+
+        const resCat = await fetch('/api/categorias');
+        const dataCategoria = await resCat.json();
+        setCategorias(dataCategoria.categorias || []);
+
       } catch (error) {
         console.error('Error al conectar con el servidor:', error);
       } finally {
@@ -33,11 +43,38 @@ export default function ProductosAdmin() {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
 
+  const prepararEdicion = (prod) => {
+    setEditando(true);
+    setForm({
+      codigo: prod.codigo || '',
+      nombre: prod.nombre || '',
+      precio: prod.precio || '',
+      imagen: prod.imagen_url || '',
+      descripcion: prod.descripcion || '',
+      stock: prod.stock || 0,
+      categoria: prod.categoria_nombre || '',
+      en_oferta: prod.en_oferta === 1 ? 'SÍ':'NO',
+      porc_oferta: prod.porc_oferta || ''
+    });
+    document.getElementById('cuadro-ingreso-productos').showModal();
+  };
+
+  const abrirParaAgregar = () => {
+    setEditando(false); 
+    setForm({ codigo: '', nombre: '', precio: '', imagen: '', descripcion: '',
+       stock: 0, categoria: '', en_oferta:'', porc_oferta:'' });
+    document.getElementById('cuadro-ingreso-productos').showModal();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const url = editando ? `/api/productos/${form.codigo}` : '/api/productos';
+    const metodo = editando ? 'PUT' : 'POST';
+
     try {
-      const response = await fetch('/api/productos', {
-        method: 'POST',
+      const response = await fetch(url, {
+        method: metodo,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -47,7 +84,10 @@ export default function ProductosAdmin() {
           precio: parseFloat(form.precio),
           imagen: form.imagen,
           descripcion: form.descripcion,
-          stock: parseInt(form.stock) || 0
+          stock: form.stock || 0,
+          nombre_categoria: form.categoria,
+          en_oferta: form.en_oferta,
+          porc_oferta: form.porc_oferta || 0
         }),
       });
 
@@ -59,12 +99,37 @@ export default function ProductosAdmin() {
         setProductos(newData.productos || []);
         
         document.getElementById('cuadro-ingreso-productos').close();
-        setForm({ codigo: '', nombre: '', precio: '', imagen: '', descripcion: '', stock: 0 });
+        setForm({ codigo: '', nombre: '', precio: '', imagen: '', descripcion: '', stock: 0, categoria: '', en_oferta:'', porc_oferta:'' });
       } else {
         alert(data.error || 'Error al registrar producto');
       }
     } catch (error) {
       console.error('Error en la petición:', error);
+    }
+  };
+
+  const handleEliminar = async(codigo, nombre) => {
+    const confirmar = window.confirm(`¿Estás seguro de que deseas eliminar el producto "${nombre}"?`);
+
+    if(!confirmar)return;
+
+    try {
+      const response = await fetch(`/api/productos/${codigo}`,{
+        method: 'DELETE',
+      });
+
+      const data = await response.json();
+
+      if(response.ok){
+        alert(data.mensaje || 'Producto eliminado correctamente');
+        const res = await fetch('/api/productos');
+        const nuevosDatos = await res.json();
+        setProductos(nuevosDatos.productos || []);
+      }else{
+          alert(data.error || 'Error al eliminar el producto');
+      } 
+    } catch (error) {
+      console.error('Hubo un error tratando de eliminar el producto', error)
     }
   };
 
@@ -83,12 +148,16 @@ export default function ProductosAdmin() {
                   <th scope="col">Stock</th>
                   <th scope="col">Precio</th>
                   <th scope="col">Imagen</th>
+                  <th scope="col">¿en oferta?</th>
+                  <th scope="col">%</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody id="table-products" >
                 {cargando ? (
                   <tr>
-                    <td colSpan="5" className="text-center">Cargando productos...</td>
+                    <td span="5" className="text-center">Cargando productos...</td>
                   </tr>
                 ) : productos.length > 0 ? (
                   productos.map((prod, index) => (
@@ -107,6 +176,11 @@ export default function ProductosAdmin() {
                           'Sin imagen'
                         )}
                       </td>
+                      <td>{prod.en_oferta === 1 ? 'SÍ' : 'NO'}</td>
+                      <td>{prod.porc_oferta}</td>
+                      <td><button className='btn btn-info' onClick={()=> prepararEdicion(prod)}>Editar</button></td>
+                      <td><button className='btn btn-danger' onClick={()=> handleEliminar(prod.codigo, prod.nombre)}>Eliminar</button></td>
+
                     </tr>
                   ))
                 ) : (
@@ -117,11 +191,7 @@ export default function ProductosAdmin() {
               </tbody>
             </table>
 
-            <button 
-              className="btn btn-success" 
-              id="ventana-ingreso-productos"
-              onClick={() => document.getElementById('cuadro-ingreso-productos').showModal()}
-            >
+            <button className="btn btn-success" id="ventana-ingreso-productos" onClick={() => document.getElementById('cuadro-ingreso-productos').showModal()}>
               Agregar producto
             </button>
 
@@ -145,26 +215,35 @@ export default function ProductosAdmin() {
                 <input type="number" id="stock" value={form.stock} onChange={handleChange} required />
 
                 <label htmlFor="categoria">Categoría: </label>
-                <input type="text" id="categoria" value={form.categoria} onChange={handleChange} required />
+                <select id="categoria" value={form.categoria} onChange={handleChange} required>
+                  <option value="">Seleccione la categoria</option>
+                  {categorias.map((cat)=>(
+                    <option key={cat.id_categoria} value={cat.nombre_categoria}>{cat.nombre_categoria}</option>
+                  ))}
+                </select>
+                  
                 
                 <label htmlFor="imagen">Imagen (URL): </label>
                 <input type="text" id="imagen" value={form.imagen} onChange={handleChange} />
 
+                <label htmlFor="en_oferta">¿en oferta?: </label>
+                <select id="en_oferta" name="en_oferta" value={form.en_oferta} onChange={handleChange} required>
+                  <option value="">Seleccione...</option>
+                  <option value="SÍ">SÍ</option>
+                  <option value="NO">NO</option>
+                </select>
+
+                <label htmlFor="porc_oferta">% oferta: </label>
+                <input type="number" id="porc_oferta" value={form.porc_oferta} onChange={handleChange} required />
+
                 <div style={{ marginTop: '50px' }}>
-                  <button type="submit" className="btn btn-info">Agregar</button>
-                  <button 
-                    type="button" 
-                    className="btn btn-danger" 
-                    id="btn-cerrar-cuadro"
-                    onClick={() => document.getElementById('cuadro-ingreso-productos').close()}
-                  >
+                  <button type="submit" className="btn btn-info">Aceptar</button>
+                  <button type="button" className="btn btn-danger" id="btn-cerrar-cuadro" onClick={() => document.getElementById('cuadro-ingreso-productos').close()}>
                     Cancelar
                   </button>
                 </div>
               </form>
             </dialog>
-
-          
         </div>
       </div>
     </div>

@@ -35,11 +35,11 @@ function Perfil() {
 
   const dataPerfil = [
     { id: 'nombre', title: 'Nombre', value: usuario.nombre, icon: <BsPerson size={28} className='icono_color mb-2' /> },
-    { id: 'apellido', title: 'Apelldio', value: usuario.apellido, icon: <BsPerson size={28} className='icono_color mb-2' /> },
-    { id: 'correo', title: 'Correo Electrónico', value: usuario.correo, icon: <BsEnvelope size={28} className='icono_color mb-2' /> },
+    { id: 'apellido', title: 'Apellido', value: usuario.apellido, icon: <BsPerson size={28} className='icono_color mb-2' /> },
+    { id: 'correo', title: 'Correo Electronico', value: usuario.correo, icon: <BsEnvelope size={28} className='icono_color mb-2' /> },
     { id: 'rut', title: 'RUT', value: usuario.rut, icon: <BsCardHeading size={28} className='icono_color mb-2' /> },
-    { id: 'telefono', title: 'Teléfono', value: usuario.telefono, icon: <BsTelephone size={28} className='icono_color mb-2' /> },
-    { id: 'region', title: 'Región', value: usuario.region, icon: <BsMap size={28} className='icono_color mb-2' /> },
+    { id: 'telefono', title: 'Telefono', value: usuario.telefono, icon: <BsTelephone size={28} className='icono_color mb-2' /> },
+    { id: 'region', title: 'Region', value: usuario.region, icon: <BsMap size={28} className='icono_color mb-2' /> },
     { id: 'comuna', title: 'Comuna', value: usuario.comuna, icon: <BsGeoAlt size={28} className='icono_color mb-2' /> },
   ];
 

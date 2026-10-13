@@ -8,6 +8,7 @@ import NavigationBar from './Tienda/Navbar/navbar';
 import Footer from './Tienda/Footer/footer';
 import Home from './Tienda/Home/home';
 import Productos from './Tienda/Productos/producto';
+import CategoriasTienda from './Tienda/Categorias/categorias';
 import DetalleProductos from "./Tienda/Productos/detalleProductos";
 import { CarritoContext, carrito as CarritoProvider} from './Tienda/Carrito/Carrito';
 import DetallesCarrito from './Tienda/Carrito/DetallesCarrito';
@@ -48,11 +49,12 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/producto" element={<Productos />} />
           <Route path="/producto/:codigo" element={<DetalleProductos />} />
+          <Route path="/categorias/:id" element={<Categorias />} />
           <Route path="/carrito" element={<DetallesCarrito/>} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/blogs" element={<Blog />} />
+          <Route path="/admin/blogs" element={<Blog />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/categorias" element={<Categorias />} />
           <Route path="/compras" element={<Compras />} />
           <Route path="/compraExito" element={<CompraExito />} />
           <Route path="/compraFallo" element={<CompraFallo />} />

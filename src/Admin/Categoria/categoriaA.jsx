@@ -23,29 +23,29 @@ export default function CategoriasAdmin() {
   }, []);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/api/categorias', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ nombre_categoria: nombreCategoria }),
-      });
+  e.preventDefault();
+  try {
+    const response = await fetch('/api/categorias/agregar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ nombre_categoria: nombreCategoria }),
+    });
 
-      const data = await response.json();
-      if (data.ok) {
-        alert(data.mensaje || 'Categoría agregada exitosamente');
-        cargarCategorias();
-        document.getElementById('cuadro-ingreso-categorias').close();
-        setNombreCategoria('');
-      } else {
-        alert(data.error || 'Error al registrar categoría');
-      }
-    } catch (error) {
-      console.error('Error en la petición:', error);
+    const data = await response.json();
+    if (data.ok) {
+      alert(data.mensaje || 'Categoría agregada exitosamente');
+      cargarCategorias();
+      document.getElementById('cuadro-ingreso-categorias').close();
+      setNombreCategoria('');
+    } else {
+      alert(data.error || 'Error al registrar categoría');
     }
-  };
+  } catch (error) {
+    console.error('Error en la petición:', error);
+  }
+};
 
   return (
     <div className="container-fluid flex-grow-1 p-0">

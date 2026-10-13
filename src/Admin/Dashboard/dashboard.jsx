@@ -58,7 +58,7 @@ const cardsData = [
 
 const dataCardLink= [
   {id: 'dashboard',
-  title: 'Dashaboard',
+  title: 'Dashboard',
   Link: '/dashboard',
   icon: <BsClipboard2Data size={30} className='mb-2 icono_color mx-auto block'/>,
   text: 'Vision general de todas las metricas y estadisticas claves del sistema.'

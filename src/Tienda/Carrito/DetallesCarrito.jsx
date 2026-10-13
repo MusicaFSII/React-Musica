@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CarritoContext } from './Carrito'; 
+import './carrito.css'
 
 export default function CarritoPage() {
 
@@ -18,9 +19,9 @@ export default function CarritoPage() {
       </div>
 
       {carrito.length === 0 ? (
-        <div className="text-center py-5 shadow-sm rounded bg-light">
-          <h4 className="text-muted mb-3">Tu carrito está vacío</h4>
-          <Link to="/producto" className="btn btn-primary px-4">
+        <div className="cuadro-carrito-vacio">
+          <h4 >Tu carrito está vacío</h4>
+          <Link to="/producto" className="boton-carrito-vacio btn btn-primary px-4">
             Ir al Catálogo
           </Link>
         </div>
@@ -76,14 +77,14 @@ export default function CarritoPage() {
           </div>
 
           <div className="col-12 col-lg-4">
-            <div className="card shadow-sm p-4 bg-light">
-              <h4 className="mb-4">Resumen</h4>
-              <div className="d-flex justify-content-between mb-2">
+            <div className="card p-4 bg-light">
+              <h4 className="resumen-texto">Resumen</h4>
+              <div className="resumen-texto d-flex justify-content-between mb-2">
                 <span>Total artículos:</span>
                 <span className="fw-semibold">{totalProductos}</span>
               </div>
               <hr />
-              <div className="d-flex justify-content-between align-items-center mb-4">
+              <div className="resumen-texto d-flex justify-content-between align-items-center mb-4">
                 <span className="fs-5 fw-bold">Total a pagar:</span>
                 <span className="fs-4 fw-bold text-success">
                   ${costoTotal.toLocaleString('es-CL')}

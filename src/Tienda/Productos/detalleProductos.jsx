@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { CarritoContext } from '../Carrito/Carrito';
+import Accordion from 'react-bootstrap/Accordion';
 import './productos.css';
 
 export default function DetalleProductos() {
@@ -41,12 +42,13 @@ export default function DetalleProductos() {
 
   if (cargando) return <div className="text-center p-5">Cargando producto...</div>;
   if (error || !producto) return <div className="text-center p-5">{error || 'Producto no encontrado.'}</div>;
-
+  
+  const precioBase = producto.precio_final !== undefined ? producto.precio_final : producto.precio;
   const porcentajeIVA = 0.19;
-  const montoIVA = producto.precio * porcentajeIVA;
-  const precioNeto = producto.precio - montoIVA;
-  const precioTotal = producto.precio;
-
+  const montoIVA = precioBase * porcentajeIVA;
+  const precioNeto = precioBase - montoIVA;
+  const precioTotal = precioBase;
+  
   const formatearPrecio = (valor) => {
     return valor ? new Intl.NumberFormat('es-CL').format(valor) : '0';
   };
@@ -55,71 +57,56 @@ export default function DetalleProductos() {
     agregarProducto({
       id: producto.id_producto || producto.codigo,
       nombre: producto.nombre,
-      precio: producto.precio || 0,
+      precio: precioBase || 0,
       imagen: producto.imagen_url || 'https://via.placeholder.com/300?text=Sin+Imagen'
     });
   };
 
   return (
-    <main className="container my-4">
-      <div className="container-presentacion row mb-4">
-        <div className="card-productos col-md-6 text-center">
+    <main className="container">
+      <div className="container-presentacion">
+        <div className="card-productos">
+          {producto.en_oferta === 1 && producto.porc_oferta > 0 && (
+            <span className="badge bg-danger">
+              -{producto.porc_oferta}%
+            </span>
+          )}
           <h1>{producto.nombre}</h1>
-          <img 
-            src={producto.imagen_url} 
-            className="card-productos-img img-fluid" 
-            alt={producto.nombre || "producto-detalle"} 
-          />
+          <img src={producto.imagen_url} className="card-productos-img" alt={producto.nombre || "producto-detalle"} />
         </div>
 
-        <div className="card-precios col-md-6 d-flex flex-column justify-content-center">
-          <div className="card-precios-detalles mb-3">
-            <p className="mb-1">
+          <div className="card-precios-detalles">
+            {producto.en_oferta === 1 && producto.porc_oferta > 0 &&(
+              <div>
+              <span>
+                Precio normal: ${formatearPrecio(producto.precio)}
+              </span>
+            </div>
+            )}
+            <p>
               Precio neto: $<span id="precioProducto">{formatearPrecio(precioNeto)}</span>
             </p>
-            <p className="mb-1">
+            <p>
               IVA (19%): $<span id="precioIVA">{formatearPrecio(montoIVA)}</span>
             </p>
-            <p className="h5 fw-bold text-success">
+            <p className='precio-total'>
               Precio TOTAL: $<span id="precioTotal">{formatearPrecio(precioTotal)}</span>
             </p>
-          </div>
 
-          <button type="button" className="btn btn-info btn-lg btn-carrito text-white" onClick={agregarClick}>
-            Agregar al carrito
-          </button>
-        </div>
+            <button type="button" className="btn btn-info btn-carrito button-agregar" onClick={agregarClick}>
+              Agregar al carrito
+            </button>
+          </div>
       </div> 
 
-      <div className="accordion" id="accordionPanelsStayOpenExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingOne">
-            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-              Descripción del producto
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne">
-            <div className="accordion-body">
-              {producto.descripcion || 'Sin descripción disponible.'}
-            </div>
-          </div>
-        </div>
-
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingTwo">
-            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Información del vinilo
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo">
-            <div className="accordion-body">
-              <p><strong>Código:</strong> {producto.codigo}</p>
-              <p><strong>Categoría / Género:</strong> {producto.categoria_nombre || 'General'}</p>
-              <p><strong>Unidades disponibles:</strong> {producto.stock}</p>
-            </div>
-          </div>
-        </div>
-      </div> 
+      <Accordion className="acordeon-descripcion">
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Descripción</Accordion.Header>
+        <Accordion.Body>
+          {producto.descripcion}
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
     </main>
   );
 }
