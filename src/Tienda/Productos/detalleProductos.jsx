@@ -42,12 +42,13 @@ export default function DetalleProductos() {
 
   if (cargando) return <div className="text-center p-5">Cargando producto...</div>;
   if (error || !producto) return <div className="text-center p-5">{error || 'Producto no encontrado.'}</div>;
-
+  
+  const precioBase = producto.precio_final !== undefined ? producto.precio_final : producto.precio;
   const porcentajeIVA = 0.19;
-  const montoIVA = producto.precio * porcentajeIVA;
-  const precioNeto = producto.precio - montoIVA;
-  const precioTotal = producto.precio;
-
+  const montoIVA = precioBase * porcentajeIVA;
+  const precioNeto = precioBase - montoIVA;
+  const precioTotal = precioBase;
+  
   const formatearPrecio = (valor) => {
     return valor ? new Intl.NumberFormat('es-CL').format(valor) : '0';
   };
@@ -56,7 +57,7 @@ export default function DetalleProductos() {
     agregarProducto({
       id: producto.id_producto || producto.codigo,
       nombre: producto.nombre,
-      precio: producto.precio || 0,
+      precio: precioBase || 0,
       imagen: producto.imagen_url || 'https://via.placeholder.com/300?text=Sin+Imagen'
     });
   };
@@ -65,11 +66,23 @@ export default function DetalleProductos() {
     <main className="container">
       <div className="container-presentacion">
         <div className="card-productos">
+          {producto.en_oferta === 1 && producto.porc_oferta > 0 && (
+            <span className="badge bg-danger">
+              -{producto.porc_oferta}%
+            </span>
+          )}
           <h1>{producto.nombre}</h1>
           <img src={producto.imagen_url} className="card-productos-img" alt={producto.nombre || "producto-detalle"} />
         </div>
 
           <div className="card-precios-detalles">
+            {producto.en_oferta === 1 && producto.porc_oferta > 0 &&(
+              <div>
+              <span>
+                Precio normal: ${formatearPrecio(producto.precio)}
+              </span>
+            </div>
+            )}
             <p>
               Precio neto: $<span id="precioProducto">{formatearPrecio(precioNeto)}</span>
             </p>

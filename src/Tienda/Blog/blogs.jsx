@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { useLocation } from 'react-router-dom';
 import './blog.css'
 
 export default function Blog() {
-  
+  const location = useLocation();
+  const esAdmin = location.pathname.includes('/admin');
+
   const [blogs, setBlogs] = useState([]);
   const [cargando, setCargando] = useState(true);
 
@@ -110,7 +113,7 @@ export default function Blog() {
     return <div style={{ padding: '20px' }}>Cargando blogs...</div>;
   }
 
-  if (modo === 'crear' || modo === 'editar') {
+  if ((modo === 'crear' || modo === 'editar') && esAdmin) {
     return (
       <div style={{ maxWidth: '500px', margin: '40px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '8px', color: '#fff' }}>
         <h3>{modo === 'crear' ? 'Creación de blog' : `Editando: ${blogEditable?.blog_id}`}</h3>
@@ -167,9 +170,11 @@ export default function Blog() {
     <div>
       <div className="button-crear-blog">
         <h2>Blogs</h2>
-        <Button variant="primary" onClick={() => setModo('crear')}>
-          Crear Blog
-        </Button>
+        {esAdmin &&(
+          <Button variant="primary" onClick={() => setModo('crear')}>
+            Crear Blog
+          </Button>
+        )}
       </div>
 
       {blogs.length === 0 ? (
@@ -183,11 +188,14 @@ export default function Blog() {
                 <Card.Body>
                   <Card.Title className="titulo-blog">{blog.titulo}</Card.Title>
                   <Card.Text>{blog.contenido}</Card.Text>
-                  <div>
-                    <Button variant="warning" onClick={() => activarEdicion(blog)}>
-                      Editar
-                    </Button>
-                  </div>
+                  {esAdmin &&(
+                    <div>
+                      <Button variant="warning" onClick={() => activarEdicion(blog)}>
+                        Editar
+                      </Button>
+                    </div>
+                  )}
+                  
                 </Card.Body>
               </Card>
             </div>

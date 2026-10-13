@@ -53,6 +53,7 @@ function App() {
           <Route path="/carrito" element={<DetallesCarrito/>} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/blogs" element={<Blog />} />
+          <Route path="/admin/blogs" element={<Blog />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/compras" element={<Compras />} />
           <Route path="/compraExito" element={<CompraExito />} />

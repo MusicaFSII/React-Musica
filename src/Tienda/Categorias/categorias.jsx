@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { CarritoContext } from '../Carrito/Carrito';
+import { Link } from 'react-router-dom';
 
 export default function CategoriasTienda() {
   const {id} = useParams();
@@ -68,24 +68,18 @@ export default function CategoriasTienda() {
         return (
           <div className="col-12 col-md-4" key={idUnico}>
             <article className="card h-100 border-0 shadow-sm p-3">
-              
-
-                <div className="position-relative overflow-hidden mb-3" style={{ background: '#f5f5f5', borderRadius: '4px' }}>
-                  <img src={prod.imagen_url}
-                    alt={`Portada de ${prod.nombre}`}
-                    className="img-fluid w-100"
-                    loading="lazy"
-                  />
-                </div>
-                
                 <div className="card-body p-0">
-                  <h3 className="h5 card-title mb-1">{prod.nombre}</h3>
-                  <p className="card-text text-bright small mb-2">{prod.descripcion}</p>
-                  <div className="d-flex justify-content-between align-items-center mt-3">
-                    <strong className="text-bright">{formatoPrecio(prod.precio)}</strong>
-                  </div>
+                  <Link to={`/producto/${prod.codigo}`} className="card-link text-decoration-none">
+                    <div className="position-relative overflow-hidden mb-3" style={{ background: '#f5f5f5', borderRadius: '4px' }}>
+                      <img src={prod.imagen_url} alt={`Portada de ${prod.nombre}`} className="img-fluid w-100" loading="lazy"/>
+                    </div>
+                    <h3 className="h5 card-title mb-1">{prod.nombre}</h3>
+                    <p className="card-text text-bright small mb-2">{prod.descripcion}</p>
+                    <div className="d-flex justify-content-between align-items-center mt-3">
+                      <strong className="text-bright">{formatoPrecio(prod.precio)}</strong>
+                    </div>
+                  </Link>
                 </div>
-
             </article>
           </div>
         );

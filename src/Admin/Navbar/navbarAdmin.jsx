@@ -35,6 +35,7 @@ function NavbarAdmin() {
             <Nav.Link as={Link} to="/productosA">Productos</Nav.Link>
             <Nav.Link as={Link} to="/categoriaA">Categorias</Nav.Link>
             <Nav.Link as={Link} to="/reportes">Reportes</Nav.Link>
+            <Nav.Link as={Link} to="/admin/blogs">Blogs</Nav.Link>
             <Nav.Link as={Link} to="/perfil">Perfil</Nav.Link>
             
 

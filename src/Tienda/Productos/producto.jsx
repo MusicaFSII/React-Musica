@@ -45,9 +45,24 @@ export default function CatalogoProductos() {
                   <h6 className="card-title text-bright">{prod.nombre}</h6>
                   <div className="d-flex justify-content-between align-items-center mt-3">
                     <span className="text-bright small">Stock: {prod.stock}</span>
-                    <span className="fw-bold text-primary">
-                      ${prod.precio ? prod.precio.toLocaleString('es-CL') : 0}
-                    </span>
+                    
+                    <div>
+                      {prod.en_oferta === 1 && prod.porc_oferta > 0 ? (
+                        <>
+                          <span className="text-muted text-decoration-line-through small d-block">
+                            ${prod.precio ? prod.precio.toLocaleString('es-CL') : 0}
+                          </span>
+                          <span className="fw-bold text-danger">
+                            ${prod.precio_final ? prod.precio_final.toLocaleString('es-CL') : 0}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="fw-bold text-primary">
+                          ${prod.precio ? prod.precio.toLocaleString('es-CL') : 0}
+                        </span>
+                      )}
+                    </div>
+                    
                   </div>
                 </div>
               </div>

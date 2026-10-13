@@ -138,9 +138,16 @@ function Home() {
                     <div className="vinyl-description">
                       <h3>{prod.nombre}</h3>
                       <p>{prod.descripcion || 'Album en vinilo'}</p>
-                      <strong>
-                        {formatoPrecio(prod.precio)}
-                      </strong>
+                      {prod.en_oferta === 1 && prod.porc_oferta > 0 ? (
+                        <div>
+                            <span>{formatoPrecio(prod.precio)}</span>
+                            <strong>{formatoPrecio(prod.precio_final)}</strong>
+                            <span>-{prod.porc_oferta}%</span>
+                          </div>
+                      ):(
+                       <strong>{formatoPrecio(prod.precio_final)}</strong> 
+                      )}
+                      
                     </div>
                   </div>
                 </Link>

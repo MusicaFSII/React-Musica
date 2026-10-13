@@ -1,0 +1,18 @@
+.cuadro-carrito-vacio{
+    border-color: #11100E !important;
+    background-color: #11100E !important;
+    height: 300px;
+}
+
+.boton-carrito-vacio{
+    border-color: white !important;
+    background-color: #A63D32 !important;
+}
+
+.col-12{
+    background-color: #11100E;
+}
+
+.resumen-texto{
+    color: #11100E;
+}
