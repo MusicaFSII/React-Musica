@@ -19,7 +19,7 @@ function Footer() {
             </Link>
           </li>
           <li className="list-inline-item mx-3">
-            <Link className="footer_link text-decoration-none" to="/productos">
+            <Link className="footer_link text-decoration-none" to="/producto">
               Productos
             </Link>
           </li>
@@ -34,7 +34,7 @@ function Footer() {
             </Link>
           </li>
           <li className="list-inline-item mx-3">
-            <Link className="footer_link text-decoration-none" to="/blog">
+            <Link className="footer_link text-decoration-none" to="/blogs">
               Blog
             </Link>
           </li>

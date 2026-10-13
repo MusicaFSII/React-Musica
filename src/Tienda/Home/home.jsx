@@ -3,6 +3,8 @@ import { BsArrowRightShort, BsArrowUpRight, BsDisc} from "react-icons/bs"
 import { Link } from 'react-router-dom'
 import './home.css'
 
+const paletaColores = ['grunge', 'rock', 'alternative', 'indie', 'soul', 'glam'];
+
 const formatoPrecio = (precio) =>
   precio.toLocaleString('es-CL', {
     style: 'currency',
@@ -174,8 +176,10 @@ function Home() {
           {categoriasunicas.map((cat, index) => {
             const numeroFormateado = String(index + 1).padStart(2, '0')
 
+            const claseColor = paletaColores[index % paletaColores.length];
+            
             return (
-              <Link to={`/categorias/${cat.id}`} className="genre-card" key={cat.id || `cat-${index}`}>
+              <Link to={`/categorias/${cat.id}`} className={`genre-card ${claseColor}`} key={cat.id || `cat-${index}`}>
                 <span className="genre-number">
                   {numeroFormateado} / OFFBEAT
                 </span>
