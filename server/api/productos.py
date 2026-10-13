@@ -106,7 +106,6 @@ def obtenerProductosOfertas():
 def registrarProducto():
     body = request.get_json() or {}
 
-    codigo = body.get('codigo')
     nombre = body.get('nombre')
     descripcion = body.get('descripcion')
     precio = body.get('precio')
@@ -118,8 +117,13 @@ def registrarProducto():
     en_oferta = 1 if en_oferta_ingreso == 'SÍ' else 0
     porc_oferta = body.get('porc_oferta')
 
-    if not codigo or not nombre or not precio or not stock or not imagen or not nombre_categoria or not en_oferta_ingreso is None:
+    if not nombre or not precio or not stock or not imagen or not nombre_categoria or not en_oferta_ingreso:
         return jsonify({'ok': False, 'error': 'Faltan campos obligatorios'}), 400
+
+    fila = db.execute("SELECT MAX(id_producto) FROM productos").fetchone()
+    ultimo_id = fila[0] if (fila and fila[0] is not None) else 0
+    nuevo_numero = ultimo_id + 1
+    codigo = f"VIN-00{nuevo_numero}"
 
     categoria_id = None
     if nombre_categoria:

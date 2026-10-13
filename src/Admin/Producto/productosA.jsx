@@ -46,7 +46,6 @@ export default function ProductosAdmin() {
   const prepararEdicion = (prod) => {
     setEditando(true);
     setForm({
-      codigo: prod.codigo || '',
       nombre: prod.nombre || '',
       precio: prod.precio || '',
       imagen: prod.imagen_url || '',
@@ -61,7 +60,7 @@ export default function ProductosAdmin() {
 
   const abrirParaAgregar = () => {
     setEditando(false); 
-    setForm({ codigo: '', nombre: '', precio: '', imagen: '', descripcion: '',
+    setForm({nombre: '', precio: '', imagen: '', descripcion: '',
        stock: 0, categoria: '', en_oferta:'', porc_oferta:'' });
     document.getElementById('cuadro-ingreso-productos').showModal();
   };
@@ -79,7 +78,6 @@ export default function ProductosAdmin() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          codigo: form.codigo,
           nombre: form.nombre,
           precio: parseFloat(form.precio),
           imagen: form.imagen,
@@ -178,8 +176,8 @@ export default function ProductosAdmin() {
                       </td>
                       <td>{prod.en_oferta === 1 ? 'SÍ' : 'NO'}</td>
                       <td>{prod.porc_oferta}</td>
-                      <td><button className='btn btn-info' onClick={()=> prepararEdicion(prod)}>Editar</button></td>
-                      <td><button className='btn btn-danger' onClick={()=> handleEliminar(prod.codigo, prod.nombre)}>Eliminar</button></td>
+                      <td><button className='btn btn-info button-editar-producto' onClick={()=> prepararEdicion(prod)}>Editar</button></td>
+                      <td><button className='btn btn-danger button-eliminar-producto' onClick={()=> handleEliminar(prod.codigo, prod.nombre)}>Eliminar</button></td>
 
                     </tr>
                   ))
@@ -191,16 +189,13 @@ export default function ProductosAdmin() {
               </tbody>
             </table>
 
-            <button className="btn btn-success" id="ventana-ingreso-productos" onClick={() => document.getElementById('cuadro-ingreso-productos').showModal()}>
+            <button className="btn btn-success button-nuevo-producto" id="ventana-ingreso-productos" onClick={() => document.getElementById('cuadro-ingreso-productos').showModal()}>
               Agregar producto
             </button>
 
             <dialog id="cuadro-ingreso-productos">
               <form className="cuadro-registro" id="forma-ingreso-productos" onSubmit={handleSubmit}>
                 <h3>INGRESO DE PRODUCTOS</h3>
-                
-                <label htmlFor="codigo">Código: </label>
-                <input type="text" id="codigo" value={form.codigo} onChange={handleChange} required />
 
                 <label htmlFor="nombre">Nombre: </label>
                 <input type="text" id="nombre" value={form.nombre} onChange={handleChange} required />
@@ -234,7 +229,7 @@ export default function ProductosAdmin() {
                 </select>
 
                 <label htmlFor="porc_oferta">% oferta: </label>
-                <input type="number" id="porc_oferta" value={form.porc_oferta} onChange={handleChange} required />
+                <input type="number" id="porc_oferta" value={form.porc_oferta} onChange={handleChange}/>
 
                 <div style={{ marginTop: '50px' }}>
                   <button type="submit" className="btn btn-info">Aceptar</button>

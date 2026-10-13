@@ -9,8 +9,36 @@
 }
 
 .titulo-blog{
-    margin-left: 50px;
+    margin-top: 180px !important;
+    margin-left: 70px;
     margin-bottom: 50px;
-    
+    font-size: 50px !important;
 }
 
+.estructura-blogs-inicio{
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.tamano-imagen-blog{
+    object-fit:contain;
+    height: 400px !important;
+    width: 600px !important;
+    margin-left: 20px;
+}
+
+.titulo-pagina{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.contenido-separado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -23,3 +23,21 @@ dialog::backdrop {
     width: 100%;
     padding: 8px;
 }
+
+.button-nuevo-producto{
+    background-color: var(--mustard) !important;
+    border-color: var(--mustard) !important;
+    color: var(--black) !important;
+}
+
+.button-editar-producto{
+    background-color: var(--moss) !important;
+    border-color: var(--moss) !important;
+    color: var(--cream) !important;
+}
+
+.button-eliminar-producto{
+    background-color: var(--brick) !important;
+    border-color: var(--brick) !important;
+    color: var(--cream) !important;
+}

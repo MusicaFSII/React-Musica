@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './blog.css'
 
 export default function Blog() {
@@ -115,7 +116,7 @@ export default function Blog() {
 
   if ((modo === 'crear' || modo === 'editar') && esAdmin) {
     return (
-      <div style={{ maxWidth: '500px', margin: '40px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '8px', color: '#fff' }}>
+      <div className="creacion-blog">
         <h3>{modo === 'crear' ? 'Creación de blog' : `Editando: ${blogEditable?.blog_id}`}</h3>
 
         <form onSubmit={modo === 'crear' ? controlCrear : guardarCambios}>
@@ -169,7 +170,7 @@ export default function Blog() {
   return (
     <div>
       <div className="button-crear-blog">
-        <h2>Blogs</h2>
+        <h2 className="titulo-pagina">Blogs</h2>
         {esAdmin &&(
           <Button variant="primary" onClick={() => setModo('crear')}>
             Crear Blog
@@ -183,11 +184,11 @@ export default function Blog() {
         <div>
           {blogs.map((blog) => (
             <div key={blog.id}>
-              <Card className="main-blog flex-row">
-                <Card.Img src={blog.imagen_blog} />
-                <Card.Body>
+              <Link to={`/producto/${blog.blog_id}`} className="card-link text-decoration-none">
+              <Card className="estructura-blogs-inicio" >
+                <Card.Img src={blog.imagen_blog} className="tamano-imagen-blog"/>
+                <div>
                   <Card.Title className="titulo-blog">{blog.titulo}</Card.Title>
-                  <Card.Text>{blog.contenido}</Card.Text>
                   {esAdmin &&(
                     <div>
                       <Button variant="warning" onClick={() => activarEdicion(blog)}>
@@ -195,9 +196,9 @@ export default function Blog() {
                       </Button>
                     </div>
                   )}
-                  
-                </Card.Body>
+                </div>
               </Card>
+              </Link>
             </div>
           ))}
         </div>
