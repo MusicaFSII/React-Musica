@@ -111,3 +111,11 @@
   font-weight: 600;
   letter-spacing: 0.5px;
 }
+
+.sidebar-nav .nav-link.active {
+  color: var(--mustard) !important;
+  background-color: rgba(212, 160, 23, 0.1) !important;
+  font-weight: 600;
+  opacity: 1 !important;
+  border-left: 3px solid var(--mustard); 
+}

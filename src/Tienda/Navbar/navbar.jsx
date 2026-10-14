@@ -1,5 +1,5 @@
-import { Link, Outlet } from 'react-router-dom';
-import { BsCart2, BsPersonCircle  } from "react-icons/bs";
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import { BsCart2, BsPersonCircle } from "react-icons/bs";
 import Logo from '../../assets/logo.png';
 import './navbar.css';
 
@@ -14,12 +14,12 @@ function NavigationBar() {
           </Link>
 
           <div className="navbar-links">
-            <Link to="/home">Home</Link>
-            <Link to="/producto">Productos</Link>
-            <Link to="/ofertas">Ofertas</Link>
-            <Link to="/nosotros">Nosotros</Link>
-            <Link to="/blogs">Blog</Link>
-            <Link to="/contacto">Contacto</Link>
+            <NavLink to="/home">Home</NavLink>
+            <NavLink to="/producto">Productos</NavLink>
+            <NavLink to="/ofertas">Ofertas</NavLink>
+            <NavLink to="/nosotros">Nosotros</NavLink>
+            <NavLink to="/blogs">Blog</NavLink>
+            <NavLink to="/contacto">Contacto</NavLink>
           </div>
         </div>
 

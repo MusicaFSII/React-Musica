@@ -448,3 +448,26 @@
   line-height: 1;
   overflow-wrap: anywhere;
 }
+
+.vinyl-price-offer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.vinyl-price-offer .precio_antiguo {
+  color: #8c8273 !important;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.vinyl-price-offer .descuento{
+  color: var(--cream) !important;
+  background: var(--brick);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}

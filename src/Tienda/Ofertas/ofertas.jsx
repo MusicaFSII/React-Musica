@@ -48,7 +48,7 @@ export default function Ofertas() {
                     <div>
                       {prod.en_oferta === 1 && prod.porc_oferta > 0 ? (
                         <>
-                          <span className="text-muted text-decoration-line-through small d-block">
+                          <span className="text-white text-decoration-line-through small d-block">
                             ${prod.precio ? prod.precio.toLocaleString('es-CL') : 0}
                           </span>
                           <span className="fw-bold text-danger">

@@ -14,6 +14,7 @@ import { CarritoContext, carrito as CarritoProvider} from './Tienda/Carrito/Carr
 import DetallesCarrito from './Tienda/Carrito/DetallesCarrito';
 import Nosotros from './Tienda/Nosotros/nosotros';
 import Blog from './Tienda/Blog/blogs';
+import DetallesBlog from './Tienda/Blog/detallesBlog';
 import Contacto from './Tienda/Contacto/contacto';
 import Categorias from './Tienda/Categorias/categorias';
 import Compras from './Tienda/Comprar/compras';
@@ -54,6 +55,7 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/blogs" element={<Blog />} />
           <Route path="/admin/blogs" element={<Blog />} />
+          <Route path="/blogs/:blog_id" element={<DetallesBlog />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/compras" element={<Compras />} />
           <Route path="/compraExito" element={<CompraExito />} />
@@ -65,7 +67,7 @@ function App() {
 
         {/* ADMIN solo usuario con el rol = admin*/}
         <Route element={<ProtectedRoute allowedRole="admin" />}>
-          <Route element={<><NavbarAdmin /><Footer /></>}>
+          <Route element={<><NavbarAdmin /></>}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/usuarios" element={<Usuarios />} />
             <Route path="/editarUsuario/:id" element={<EditarUsuario />} />

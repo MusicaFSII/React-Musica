@@ -115,3 +115,20 @@
   background-color: var(--mustard);
   color: var(--black);
 }
+
+.navbar-links a {
+  color: #A99C85;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: var(--cream);
+}
+
+.navbar-links a.active {
+  color: var(--mustard);
+  border-bottom: 2px solid var(--mustard);
+  padding-bottom: 4px;
+}

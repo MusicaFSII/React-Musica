@@ -141,10 +141,10 @@ function Home() {
                       <h3>{prod.nombre}</h3>
                       <p>{prod.descripcion || 'Album en vinilo'}</p>
                       {prod.en_oferta === 1 && prod.porc_oferta > 0 ? (
-                        <div>
-                            <span>{formatoPrecio(prod.precio)}</span>
-                            <strong>{formatoPrecio(prod.precio_final)}</strong>
-                            <span>-{prod.porc_oferta}%</span>
+                        <div className="vinyl-price-offer">
+                            <span className="precio_antiguo">{formatoPrecio(prod.precio)}</span>
+                            <strong >{formatoPrecio(prod.precio_final)}</strong>
+                            <span className="descuento">-{prod.porc_oferta}%</span>
                           </div>
                       ):(
                        <strong>{formatoPrecio(prod.precio_final)}</strong> 

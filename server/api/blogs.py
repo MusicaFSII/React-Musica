@@ -38,15 +38,23 @@ def obtenerBlogs():
 
 @app.get("/api/blogs/detalles/<string:blog_id>")
 def obtenerBlogsDetalles(blog_id):
-   query = "SELECT * FROM BLOGS WHERE blog_id = ?"
-   row = db.execute(query, (blog_id,)).fetchone()
+    query = "SELECT * FROM BLOGS WHERE blog_id = ?"
+    row = db.execute(query, (blog_id,)).fetchone()
 
-   if row is None:
-      return jsonify({"error":"Blog no encontrado."}), 404
+    if row is None:
+        return jsonify({"error": "Blog no encontrado."}), 404
 
-   diccionario = dict(row)
+    diccionario = dict(row)
 
-   return jsonify(diccionario)
+    if isinstance(diccionario.get('imagen_blog'), bytes):
+        imagen_base64 = base64.b64encode(diccionario['imagen_blog']).decode('utf-8')
+        diccionario['imagen_blog'] = f"data:image/jpeg;base64,{imagen_base64}"
+
+    for clave, valor in diccionario.items():
+        if isinstance(valor, bytes) and clave != 'imagen_blog':
+            diccionario[clave] = valor.decode('utf-8', errors='ignore')
+
+    return jsonify(diccionario)
 
 @app.post("/api/blogs/agregar")
 def agregarBlogs():
@@ -100,22 +108,18 @@ def agregarBlogs():
 
 @app.delete("/api/blogs/eliminar/<string:blog_id>")
 def eliminarBlogs(blog_id):
-    verificacion = db.execute("SELECT id FROM BLOGS WHERE blog_id = ?", blog_id)
+
+    verificacion = db.execute("SELECT id FROM BLOGS WHERE blog_id = ?", (blog_id,))
     existe = verificacion.fetchone()
 
     if not existe:
-        return(
-            jsonify({"ok":False, "error":"No existe el blog"}),
-            404,
-        )
-    query="DELETE FROM BLOGS WHERE blog_id = ?"
-    db.execute(query, (blog_id))
+        return jsonify({"ok": False, "error": "No existe el blog"}), 404
+
+    query = "DELETE FROM BLOGS WHERE blog_id = ?"
+    db.execute(query, (blog_id,))
     db.commit()
 
-    return(
-        jsonify({
-            "ok":True,
-            "mensaje":f"Blog {blog_id} eliminado correctamente",
-        }),
-        200,
-    )
+    return jsonify({
+        "ok": True,
+        "mensaje": f"Blog {blog_id} eliminado correctamente",
+    }), 200
