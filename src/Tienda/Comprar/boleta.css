@@ -1,0 +1,53 @@
+.pagina_boleta {
+  background-color: #f8f9fa;
+  color: #2b2b2b;  
+}
+
+.boleta-exportable,
+.boleta-exportable * {
+  background-color: #ffffff !important;
+  color: #2b2b2b !important;
+  box-shadow: none !important;
+}
+
+.boleta-exportable h1.text-success {
+  color: #198754 !important;
+  background-color: transparent !important;
+}
+
+.boleta-exportable .card {
+  border: 1px solid #dee2e6 !important;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.boleta-exportable .card-header {
+  background-color: #092b52 !important;
+  color: #ddd7d7 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  font-weight: 600;
+}
+
+.boleta-exportable table, 
+.boleta-exportable th, 
+.boleta-exportable td {
+  background-color: #ffffff !important;
+  color: #2b2b2b !important;
+  border-color: #dee2e6 !important;
+}
+
+.pagina_boleta .btn-outline-danger {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.pagina_boleta .btn-outline-danger:hover {
+  background-color: #e74c3c;
+  color: #ffffff;
+}
+
+.boleta-exportable h1.text-success svg,
+.boleta-exportable h1.text-success path {
+  color: #31cc12 !important;
+  fill: currentColor !important;
+}

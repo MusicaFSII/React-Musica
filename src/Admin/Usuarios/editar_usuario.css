@@ -1,0 +1,129 @@
+.contenedor {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px 20px;
+    padding-top: 40px;
+    position: relative;
+    margin: auto;
+}
+
+.contenedor_editarUsuario {
+    width: 100%;
+    padding: 40px;
+    position: relative;
+    margin: auto;
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.contenedor_editarUsuario form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 30px 25px;
+    border-radius: 20px;
+    margin: auto;
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+.contenedor_editarUsuario form h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--cream);
+}
+
+.contenedor_editarUsuario form label {
+    display: block;
+    color: var(--cream);
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.contenedor_editarUsuario form label:first-of-type {
+    margin-top: 0px;
+}
+
+.contenedor_editarUsuario form input,
+.contenedor_editarUsuario form select {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 6px;
+    color: var(--cream);
+}
+
+.region-comuna {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.region-comuna select,
+.region-comuna input {
+    margin-top: 0;
+    outline: none;
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    padding: 10px 8px;
+    font-size: 14px;
+    width: 100%;
+    flex: 1;
+    border-radius: 6px;
+}
+
+/* Agrupamiento para los botones de acción */
+.acciones-botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-guardar,
+.btn-cancelar {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-guardar {
+    background: var(--mustard) !important;
+    color: var(--cream) !important;
+}
+
+.btn-guardar:hover {
+    background: var(--brick) !important;
+    color: var(--cream) !important;
+}
+
+.btn-cancelar {
+    background: var(--brick) !important;
+    color: var(--cream) !important;
+}
+
+.btn-cancelar:hover {
+    background: var(--mustard) !important;
+    color: var(--black) !important;
+}

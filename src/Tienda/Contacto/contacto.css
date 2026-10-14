@@ -1,25 +1,137 @@
-.contenedor_logo {
-    text-align: center;
-    margin-top: 30px;
-}
-.contenedor_formulario_contacto{
-    text-align: center;
-    padding: 30px 40px;
-}
-
-.contenedor_formulario_contacto label{
-    font-size: 17px;
-    margin: 0px;
-    color: white;
+.contacto .contenedor_logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0;
 }
 
-.contenedor_formulario_contacto input,
-.contenedor_formulario_contacto textarea{
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    border: none;
-    background: #f2f2f2;
-    font-size: 16px;
-    outline: none;
+.contacto .contenedor_logo img {
+  width: 430px;
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 0;
+}
+
+.contacto div.card.tarjeta_contacto_item {
+  background-color: #14120e;
+  border: 1px solid #2a2114;
+  border-radius: 12px;
+  padding: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.contacto div.card.tarjeta_contacto_item:hover {
+  border-color: var(--mustard);
+}
+
+.contacto div.card.tarjeta_contacto_item .card-body {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 0;
+}
+
+.contacto .icono_box {
+  background-color: #241b0e;
+  color: var(--mustard);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.contacto .titulo_card {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.contacto .subtexto_card {
+  color: var(--mustard);
+  font-size: 14px;
+}
+
+.contacto .contenedor_formulario_contacto {
+  width: 100%;
+  padding: 30px;
+  background-color: #14120e;
+  border: 1px solid #2a2114;
+  border-radius: 16px;
+}
+
+.contacto .contenedor_formulario_contacto h2 {
+  font-size: 30px;
+  text-align: left;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.contacto .subtitulo_seccion {
+  color: var(--mustard);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.contacto .contenedor_formulario_contacto label {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.contacto .contenedor_formulario_contacto .form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #2a2114;
+  background-color: var(--black);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.contacto .contenedor_formulario_contacto input.form-control:focus,
+.contacto .contenedor_formulario_contacto textarea.form-control:focus {
+  background-color: var(--black);
+  color: #ffffff;
+  border-color: var(--mustard);
+  box-shadow: 0 0 0 0.25rem rgba(193, 138, 69, 0.25);
+}
+
+.contacto .contenedor_formulario_contacto .form-control::placeholder {
+  color: #665a4b;
+  opacity: 1;
+}
+
+.contacto .contenedor_formulario_contacto button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--brick);
+  color: var(--cream);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contacto .contenedor_formulario_contacto button:hover {
+  background: var(--mustard);
+  color: var(--black);
 }

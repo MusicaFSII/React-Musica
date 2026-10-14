@@ -28,3 +28,26 @@ npm run dev
 npm install react-icons
 ```
 - https://react-icons.github.io/react-icons/icons/bs/
+
+## Flask
+```
+pip install flask
+```
+- si no funciona cambiar en package.json la linea del dev de python3 a pyhton
+
+## Descargar archivos pdf html2pdf.js
+```
+npm install html2pdf.js
+```
+
+## Intalador Vitest
+```
+npm i -D vitest jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event
+```
+## Paleta de colores
+- brick: #A63D32
+- mustard: #C18A45
+- moss: #657052
+- cream: #FFF3CF
+- coffee: #382604
+- black: #11100E

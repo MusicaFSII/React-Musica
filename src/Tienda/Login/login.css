@@ -1,8 +1,181 @@
-.contenedor_logo {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 100px;
+.contenedor {
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px;
 }
+
+.contenedor_logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.contenedor_logo img {
+    width: 250px;
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.contenedor_login,
+.contenedor_registro,
+.tarjeta_cuenta {
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: #14120e;
+    border: 1px solid #2a2114;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.contenedor_login form,
+.contenedor_registro form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contenedor_login form h2,
+.contenedor_registro form h2,
+.tarjeta_cuenta h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--cream);
+}
+
+.contenedor_login form label,
+.contenedor_registro form label {
+    display: block;
+    color: var(--cream);
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+.contenedor_login form label:first-of-type,
+.contenedor_registro form label:first-of-type {
+    margin-top: 0;
+}
+
+.contenedor_login form input,
+.contenedor_registro form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--coffee);
+    background: var(--black);
+    color: var(--cream);
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.contenedor_login form button,
+.contenedor_registro form button,
+.caja-registro button,
+.caja-login button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    background: var(--brick);
+    color: var(--cream);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.contenedor_login form button:hover,
+.contenedor_registro form button:hover,
+.caja-registro button:hover,
+.caja-login button:hover {
+    background: var(--mustard);
+    color: var(--black);
+}
+
+.caja-registro,
+.caja-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.error {
+    color: #ff6b6b;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.perfil_banner {
+    background-color: #2a2114;
+    border: 1px solid var(--coffee);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.perfil_info span {
+    font-size: 13px;
+    color: var(--mustard);
+    display: block;
+}
+
+.perfil_info h3 {
+    margin: 4px 0 0 0;
+    font-size: 18px;
+    color: var(--cream);
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.btn_admin {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    background: var(--mustard);
+    color: var(--black);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn_admin:hover {
+    opacity: 0.9;
+}
+
+.btn_logout {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    background: var(--brick);
+    color: var(--cream);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn_logout:hover {
+    background: #822e25;
+}
+
 .region-comuna {
     display: flex;
     gap: 10px;
@@ -10,130 +183,13 @@
 
 .region-comuna select,
 .region-comuna input {
-    margin-top: 20px;
+    margin-top: 15px;
     outline: none;
-    background: #f2f2f2;
-    border: none;
-    padding: 5px;
+    background: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    color: var(--cream);
+    padding: 8px;
     font-size: 16px;
-    color: grey;
-    width: 130%;
-}
-
-
-main{
     width: 100%;
-    padding: 50px 50px 180px 50px;
-    margin: auto;
-    margin-top: 80px;
-    
-}
-
-.contenedor{
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-    margin: auto;
-    position: relative;
-}
-
-.caja_trasera{
-    width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    backdrop-filter: blur(8px);
-    background-color: rgba(0,128,255,0.5);
-    
-}
-
-.caja_trasera div{
-    margin: 100px 40px;
-    color: white;
-    transition: all 500ms;
-}
-
-.caja_trasera div p,
-.caja_trasera div button{
-    margin-top: 30px;
-}
-
-.caja_trasera div h3{
-    font-weight: 400;
-    font-size: 26px;
-}
-
-.caja_trasera button{
-    padding: 10px 40px;
-    border: 2px solid white;
-    background: transparent;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-    outline: none;     
-    transition: all 300ms;
-}
-
-.caja_trasera button:hover{
-    background: white;
-    color: #46A2FD;
-}
-
-/*formularios*/
-.contenedor_login-registro{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 380px;
-    position: relative;
-    top: -195px;
-    left: 10px;
-    transition: left 500ms cubic-bezier(0.175,0.885,0.320,1.275);
-}
-
-.contenedor_login-registro form{
-    width: 100%;
-    padding: 80px 20px;
-    background: white;
-    position: absolute;
-    border-radius: 20px;
-    
-}
-
-.contenedor_login-registro form h2{
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #46A2FD;
-}
-
-.contenedor_login-registro form input{
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    background: #f2f2f2;
-    font-size: 16px;
-    outline: none;
-}
-
-.contenedor_login-registro form button{
-    padding: 10px 40px;
-    margin-top: 40px;
-    border: none;
-    font-size: 14px;
-    background: #46A2FD;
-    color: white;
-    cursor: pointer;
-    outline: none; /*elimina el contorno negro que se*/
-}
-
-.formulario_login{
-    opacity: 1;
-    display: block;
-}
-
-.formulario_registro{
-    display: none;
+    flex: 1;
 }

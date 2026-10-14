@@ -1,0 +1,134 @@
+.navbar {
+    width: 100%;
+    height: 85px;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background-color: var(--black);
+    border-bottom: 1px solid var(--coffee);
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  min-width: 0;
+  margin-left: 30px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar-logo img {
+  height: 90px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  transform: translateY(-6px);
+  transition: transform 0.2s ease;
+}
+
+.navbar-logo:hover img {
+  transform: translateY(-7px) scale(1.04);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.navbar-links a {
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--mustard);
+  opacity: 1;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.user-button {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--coffee);
+  border-radius: 50%;
+  color: var(--cream);
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.user-button:hover {
+  background-color: var(--coffee);
+  border-color: var(--mustard);
+  color: var(--mustard);
+}
+
+.cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 16px;
+  background-color: var(--brick);
+  color: var(--cream);
+  border: none;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cart-button:hover {
+  background-color: var(--mustard);
+  color: var(--black);
+}
+
+.navbar-links a {
+  color: #A99C85;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: var(--cream);
+}
+
+.navbar-links a.active {
+  color: var(--mustard);
+  border-bottom: 2px solid var(--mustard);
+  padding-bottom: 4px;
+}

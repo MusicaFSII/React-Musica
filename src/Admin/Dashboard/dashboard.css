@@ -1,0 +1,47 @@
+.metrica_productos{
+    background: #657052 !important;
+    border: 1px solid #382604 !important;
+    transition: border-color 0.2s ease;
+}
+.metrica_usuarios{
+    background: #C18A45 !important;
+    border: 1px solid var(--coffee) !important;
+    transition: border-color 0.2s ease;
+}
+
+.metrica_productos:hover,
+.metrica_usuarios:hover{
+    border-color: var(--cream) !important;
+}
+
+.titulo_metrica,
+.text_metricas{
+    color: var(--cream) !important;
+}
+
+.titulo{
+    color: var(--cream);
+}
+
+.card_link{
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.card_link:hover{
+    border-color: var(--mustard) !important;
+}
+
+.icono_color{
+    color: var(--mustard);
+}
+
+.titulo_card,
+.text_card,
+.text_value{
+    color: var(--cream) !important;
+    background-color: transparent;
+}

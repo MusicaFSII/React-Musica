@@ -1,0 +1,181 @@
+.icono-volver{
+    color: #008400;
+}
+
+.contenedor_cliente,
+.contenedor_envio{
+    width: 100%;
+    position: relative;
+}
+
+.contenedor_formulario form,
+.tabla_productos{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 15px;
+    margin: auto;
+    width: 100%;
+    max-width: 900px;
+}
+
+.contenedor_formulario form label {
+    display: block;
+    color: var(--cream);
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+.contenedor_formulario form label:first-of-type {
+    margin-top: 0px;
+}
+
+.contenedor_formulario form input,
+.contenedor_formulario form textarea{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: var(--cream) !important;
+}
+
+.region-comuna {
+    display: flex;
+    gap: 10px;
+}
+
+.region-comuna select,
+.region-comuna input {
+    margin-top: 15px;
+    outline: none;
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    flex: 1;
+    color: var(--cream) !important;
+}
+
+.boton{
+    padding: 10px 40px;
+    margin-top: 10px;
+    border: none;
+    font-size: 18px;
+    background: var(--mustard) !important;
+    border: 1px solid var(--mustard) !important;
+    color: var(--cream) !important;
+    cursor: pointer;
+    outline: none; 
+}
+
+.boton:hover{
+    background: var(--brick) !important;
+    color: var(--cream) !important;
+}
+
+.tarjeta_producto{
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    border-radius: 12px;
+    color: var(--cream);
+    transition: border-color 0.2s ease;
+}
+
+.tarjeta_producto:hover{
+    border-color: var(--mustard) !important;
+}
+
+.text_card{
+    color: var(--cream);
+}
+
+.tarjeta_producto .table-responsive {
+    border: none !important;
+    background-color: var(--black) !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+}
+
+.tarjeta_producto .table {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    background-color: var(--black) !important;
+}
+
+.tarjeta_producto .table th, 
+.tarjeta_producto .table td {
+    background-color: var(--black) !important;
+    color: var(--cream) !important;
+    border-color: var(--coffee) !important;
+    vertical-align: middle;
+    text-align: center;
+    padding: 12px 8px;
+}
+
+.tarjeta_producto .table thead th {
+    font-weight: bold;
+    border-bottom-width: 2px !important;
+    background-color: var(--black) !important;
+}
+
+.tarjeta_producto .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.tarjeta_producto .accordion-item {
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+}
+
+.tarjeta_producto .accordion-button {
+    background-color: var(--black) !important;
+    color: var(--cream) !important;
+    border-color: var(--coffee) !important;
+}
+
+
+.tarjeta_producto .accordion-button:not(.collapsed) {
+    background-color: var(--coffee) !important;
+    color: var(--cream) !important;
+}
+
+.tarjeta_producto .accordion-button::after {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.tarjeta_producto .accordion-body {
+    background-color: var(--black) !important;
+    color: var(--cream) !important;
+    padding: 0 !important;
+}
+
+.boton_volver {
+    background: var(--mustard) !important;
+    color: var(--cream) !important;
+    cursor: pointer;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important; 
+    transition: background-color 0.2s ease
+}
+
+.boton_volver:hover{
+    background: var(--brick) !important;
+    color: var(--cream) !important;
+}
+
+.accordion, 
+.accordion-item, 
+.accordion-header, 
+.accordion-button {
+  width: 100% !important;
+}

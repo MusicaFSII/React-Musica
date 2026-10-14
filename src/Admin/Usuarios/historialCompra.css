@@ -1,0 +1,35 @@
+.titulo{
+    color: var(--cream);
+}
+
+.table.table-bordered {
+    border: 1px solid var(--coffee) !important;
+}
+
+.tabla_historial{
+    background-color: var(--black) !important;
+    color: var(--cream) !important;
+}
+
+.table th, 
+.table td {
+    background-color: transparent;
+    color: var(--cream);
+    border-color: var(--coffee) !important;
+    vertical-align: middle;
+}
+
+.boton_volver {
+    background: var(--mustard) !important;
+    color: var(--cream) !important;
+    cursor: pointer;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important; 
+    transition: background-color 0.2s ease
+}
+
+.boton_volver:hover{
+    background: var(--brick) !important;
+    color: var(--cream) !important;
+}

@@ -1,0 +1,70 @@
+.titulo{
+    color: var(--cream);
+}
+
+.table.table-bordered {
+    border: 1px solid var(--coffee) !important;
+}
+
+.tabla_historial{
+    background-color: var(--black) !important;
+    color: var(--cream) !important;
+    border: 1px solid var(--coffee) !important;
+}
+
+.table th, 
+.table td {
+    background-color: transparent;
+    color: var(--cream);
+    border-color: var(--coffee) !important;
+    vertical-align: middle;
+}
+
+/*metricas reporte*/
+.card {
+    background-color: var(--black) !important;
+    color: var(--cream) !important;
+    border: 1px solid var(--coffee) !important;
+}
+
+.en_stock{
+    background: #657052 !important;
+    border: 1px solid var(--coffee) !important;
+    transition: border-color 0.2s ease;
+}
+
+.total_productos{
+    background: #C18A45 !important;
+    border: 1px solid var(--coffee) !important;
+    transition: border-color 0.2s ease;
+}
+
+.sin_stock{
+    background: #A63D32 !important;
+    border: 1px solid var(--coffee) !important;
+    transition: border-color 0.2s ease;
+}
+
+.total_productos:hover,
+.en_stock:hover,
+.sin_stock:hover{
+    border-color: var(--cream) !important;
+}
+.text_metricas {
+    color: var(--cream) !important;
+}
+
+.botonPDF{
+    background: var(--brick) !important;
+    color: var(--cream) !important;
+    cursor: pointer;
+    border: none !important;
+    outline: none;
+    box-shadow: none; 
+    transition: background-color 0.2s ease;
+}
+
+.botonPDF:hover{
+    background: var(--mustard) !important;
+    color: var(--coffee) !important;
+}

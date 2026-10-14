@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap');
+
+.offbeat-home {
+  min-height: calc(100vh - 80px);
+  padding-top: 24px;
+}
+
+.offbeat-hero {
+  width: calc(100% - 44px);
+  min-height: 620px;
+  height: min(76vh, 780px);
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #17120F;
+  border: 1px solid var(--coffee);
+  border-radius: 12px;
+  isolation: isolate;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(17, 16, 14, 0.98) 0%,
+      rgba(17, 16, 14, 0.94) 22%,
+      rgba(17, 16, 14, 0.65) 45%,
+      rgba(17, 16, 14, 0.12) 100%
+    ),
+    url('/images/disqueria.jpg');
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.18;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 243, 207, 0.045) 4px
+    );
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 75px 7%;
+}
+
+.hero-copy {
+  max-width: 760px;
+}
+
+.hero-kicker {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 35px;
+  color: var(--mustard);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  color: var(--cream);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(65px, 7.5vw, 125px);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -4px;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.hero-copy h1 span {
+  color: var(--brick);
+}
+
+.hero-copy p {
+  max-width: 380px;
+  margin: 30px 0;
+  color: #E1D3B6;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 16px 28px;
+  background: var(--brick);
+  color: var(--cream);
+  border-radius: 5px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hero-cta:hover {
+  background: #BF5144;
+  transform: translateY(-3px);
+}
+
+.hero-bottom-label {
+  display: block;
+  margin-top: 32px;
+  color: var(--mustard);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.hero-sticker {
+  position: absolute;
+  right: 5%;
+  bottom: 55px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  background: var(--cream);
+  color: var(--coffee);
+  transform: rotate(-6deg);
+  box-shadow: 6px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.hero-sticker span {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-side-label {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  writing-mode: vertical-rl;
+  color: var(--mustard);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.offbeat-ticker {
+  height: 46px;
+  margin-top: 24px;
+  background: var(--brick);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.offbeat-featured {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 90px 5% 100px;
+}
+
+.featured-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 42px;
+}
+
+.section-eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--mustard);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.featured-heading h2,
+.categories-heading h2 {
+  margin: 0;
+  color: var(--cream);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(42px, 4.5vw, 75px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.featured-heading h2 span,
+.categories-heading h2 span {
+  color: var(--brick);
+}
+
+.featured-heading p {
+  margin-top: 15px;
+  color: #A99C85;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--mustard);
+  color: var(--mustard);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.section-link:hover {
+  color: var(--cream);
+}
+
+.vinyl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 26px;
+}
+
+.vinyl-card {
+  min-width: 0;
+  padding: 12px;
+  background: #181613;
+  border: 1px solid #30281E;
+  border-radius: 5px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.vinyl-card:hover {
+  border-color: var(--mustard);
+  transform: translateY(-4px);
+}
+
+.vinyl-artwork {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.15;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.vinyl-artwork img {
+  position: relative;
+  z-index: 2;
+  width: 83%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--coffee);
+  box-shadow: 5px 5px 16px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease;
+}
+
+.vinyl-card:hover .vinyl-artwork img {
+  transform: translateX(-5px);
+}
+
+.vinyl-genre {
+  position: absolute;
+  z-index: 3;
+  left: 10px;
+  top: 10px;
+  padding: 6px 10px;
+  background: var(--cream);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vinyl-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
+  padding: 15px 2px 4px;
+}
+
+.vinyl-description {
+  min-width: 0;
+}
+
+.vinyl-description h3 {
+  margin: 0 0 5px;
+  color: var(--cream);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.vinyl-description p {
+  margin: 0 0 13px;
+  color: #AFA28E;
+  font-size: 13px;
+}
+
+.vinyl-description strong {
+  color: var(--mustard);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.vinyl-add {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--brick);
+  border-radius: 6px;
+  color: var(--brick);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vinyl-add:hover,
+.vinyl-add.added {
+  background: var(--brick);
+  color: var(--cream);
+}
+
+.offbeat-categories {
+  padding: 80px 5% 100px;
+  border-top: 1px solid var(--coffee);
+  background: #171512;
+}
+
+.categories-heading {
+  max-width: 1600px;
+  margin: 0 auto 40px;
+}
+
+.genre-grid {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.genre-card {
+  min-height: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 243, 207, 0.2);
+  transition: transform 0.25s;
+}
+
+.genre-card:hover {
+  transform: translateY(-6px);
+}
+
+.genre-card.grunge{
+  background: var(--cream);
+  color: var(--black);
+}
+
+.genre-card.rock {
+  background: var(--brick);
+  color: var(--cream);
+}
+
+.genre-card.alternative {
+  background: var(--coffee);
+  color: var(--cream);
+}
+
+.genre-card.indie{
+  background: var(--mustard);
+  color: var(--black);
+}
+
+.genre-card.soul {
+  background: var(--moss);
+  color: var(--cream);
+}
+
+.genre-card.glam {
+  background: #2a7b8f;
+  color: var(--cream);
+}
+
+.genre-number {
+  position: relative;
+  z-index: 2;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.genre-disc {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  top: 25px;
+  opacity: 0.2;
+  transform: rotate(-18deg);
+  transition: transform 0.4s;
+}
+
+.genre-card:hover .genre-disc {
+  transform: rotate(25deg);
+}
+
+.genre-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.genre-bottom h3 {
+  margin: 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(22px, 2vw, 35px);
+  font-weight: 800;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.vinyl-price-offer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.vinyl-price-offer .precio_antiguo {
+  color: #8c8273 !important;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.vinyl-price-offer .descuento{
+  color: var(--cream) !important;
+  background: var(--brick);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}

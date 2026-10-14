@@ -1,0 +1,63 @@
+.titulo{
+    color: var(--cream);
+}
+
+.table.table-bordered {
+    border: 1px solid var(--coffee) !important;
+}
+
+.tabla_usuarios{
+    background-color: var(--black) !important;
+    color: var(--cream) !important;
+}
+
+.table th, 
+.table td {
+    background-color: transparent;
+    color: var(--cream);
+    border-color: var(--coffee) !important;
+    vertical-align: middle;
+}
+
+.btn_historial {
+    background-color: var(--moss) !important;
+    color: var(--cream) !important;
+}
+.btn_historial:hover {
+    background-color: #8ea36a !important;
+    border-color: #8ea36a !important;
+    color: var(--black) !important;
+}
+
+.btn_editar {
+    background-color: var(--mustard) !important;
+    border-color: var(--mustard) !important;
+    color: var(--black) !important;
+}
+.btn_editar:hover {
+    background-color: #ce9045 !important;
+    border-color: #ab793a !important;
+    color: var(--cream) !important;
+}
+
+.btn_eliminar {
+    background-color: var(--brick) !important;
+    border-color: var(--brick) !important;
+    color: var(--cream) !important;
+}
+.btn_eliminar:hover {
+    background-color: #b8453b !important;
+    border-color: #b8453b !important;
+    color: var(--black) !important;
+}
+
+.btn_registrar {
+    background-color: var(--mustard) !important;
+    border-color: var(--mustard) !important;
+    color: var(--black) !important;
+}
+.btn_registrar:hover {
+    background-color: #ab793a !important;
+    border-color: #ab793a !important;
+    color: var(--cream) !important;
+}

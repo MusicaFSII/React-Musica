@@ -1,0 +1,30 @@
+.footer_contenedor {
+  background-color: var(--black);
+  color: var(--cream);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #2a2114;
+}
+
+/* Marca / Logo */
+.footer_letras {
+  color: var(--cream);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer_logo {
+  object-fit: contain;
+  width: 80px;
+  height: 80px;
+}
+
+.footer_link {
+  color: var(--cream);
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.footer_link:hover,
+.footer_link:focus {
+  color: var(--mustard);
+}

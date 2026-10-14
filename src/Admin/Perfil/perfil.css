@@ -1,0 +1,49 @@
+.icono_color{
+    color: var(--mustard);
+}
+
+.titulo{
+    color: var(--cream);
+}
+
+.tarjeta_perfil{
+    background-color: var(--black) !important;
+    border: 1px solid var(--coffee) !important;
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.tarjeta_perfil:hover{
+    border-color: var(--mustard) !important;
+}
+
+.text_card{
+    color: var(--cream);
+}
+
+.btn_editar{
+    background: var(--mustard) !important;
+    color: var(--cream) !important;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn_editar:hover{
+    background: var(--brick) !important;
+    color: var(--cream) !important;
+}
+
+.btn_cambiar{
+    background: var(--brick) !important;
+    color: var(--cream) !important;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn_cambiar:hover{
+    background: var(--mustard) !important;
+    color: var(--black) !important;
+}

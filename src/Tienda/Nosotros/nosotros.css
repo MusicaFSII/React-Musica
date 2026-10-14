@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap');
+
+.nosotros {
+  min-height: calc(100vh - 80px);
+  padding-top: 24px;
+}
+
+.nosotros-intro {
+  position: relative;
+  width: calc(100% - 44px);
+  max-width: 1600px;
+  min-height: 560px;
+  margin: 0 auto;
+  padding: 30px 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(
+      ellipse at 85% 50%,
+      rgba(166, 61, 50, 0.2),
+      transparent 45%
+    ),
+    #191612;
+  border: 1px solid var(--coffee);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.nosotros-intro::after {
+  content: '';
+  position: absolute;
+  right: -130px;
+  top: 45px;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  border: 30px solid rgba(193, 138, 69, 0.09);
+  box-shadow:
+    0 0 0 25px rgba(255, 243, 207, 0.025),
+    0 0 0 70px rgba(255, 243, 207, 0.025),
+    0 0 0 110px rgba(255, 243, 207, 0.02);
+  pointer-events: none;
+}
+
+.nosotros-intro-top,
+.nosotros-intro-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--mustard);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nosotros-intro-content {
+  padding: 70px 0;
+}
+
+.nosotros-eyebrow {
+  display: block;
+  color: var(--mustard);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.nosotros-intro h1 {
+  margin: 22px 0 25px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(54px, 7vw, 110px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -4px;
+}
+
+.nosotros-intro h1 em {
+  color: var(--brick);
+  font-style: normal;
+}
+
+.nosotros-intro-content > p {
+  max-width: 480px;
+  color: #C9BDA8;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.nosotros-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+  padding-bottom: 8px;
+  color: var(--mustard);
+  border-bottom: 1px solid var(--mustard);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nosotros-intro-bottom {
+  padding-top: 20px;
+  border-top: 1px solid rgba(193, 138, 69, 0.35);
+}
+
+/* --- VIDEO SECTION --- */
+.nosotros-video-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 5%;
+}
+
+.nosotros-section-heading {
+  margin-bottom: 35px;
+}
+
+.nosotros-section-heading h2,
+.nosotros-story-heading h2 {
+  margin: 15px 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(42px, 5vw, 76px);
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.nosotros-section-heading h2 span,
+.nosotros-story-heading h2 span {
+  color: var(--brick);
+}
+
+.nosotros-video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #191612;
+  border: 1px solid var(--coffee);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.nosotros-video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.nosotros-video-caption {
+  margin-top: 17px;
+  color: var(--mustard);
+  text-align: right;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* --- STORY SECTION --- */
+.nosotros-story {
+  padding: 95px 5% 110px;
+  background: #171512;
+  border-top: 1px solid var(--coffee);
+}
+
+.nosotros-story-heading {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+
+.nosotros-story-heading p {
+  color: #A99C85;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.nosotros-story-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.nosotros-story-card {
+  min-height: 340px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #211C17;
+  border: 1px solid var(--coffee);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.nosotros-story-card.reverse .nosotros-story-text {
+  order: 2;
+}
+
+.nosotros-story-card.reverse .nosotros-story-image {
+  order: 1;
+}
+
+.nosotros-story-text {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nosotros-story-number {
+  color: var(--mustard);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nosotros-story-text h3 {
+  max-width: 420px;
+  margin: 22px 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(29px, 3vw, 45px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.nosotros-story-text p {
+  max-width: 480px;
+  color: #C5B9A6;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.nosotros-story-decoration {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 35px;
+  color: var(--mustard);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nosotros-story-image {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  background: var(--coffee);
+}
+
+.nosotros-story-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nosotros-image-number {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 14px;
+  background: var(--brick);
+  color: var(--cream);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nosotros-final {
+  padding: 100px 7%;
+  text-align: center;
+  background: var(--moss);
+  color: var(--cream);
+}
+
+.nosotros-final-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nosotros-final h2 {
+  margin: 30px 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(42px, 5.5vw, 88px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.nosotros-final h2 span {
+  color: var(--black);
+}
+
+.nosotros-final > p {
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.nosotros-final-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 26px;
+  background: var(--brick);
+  color: var(--cream);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nosotros-final-button:hover {
+  background: var(--coffee);
+}
