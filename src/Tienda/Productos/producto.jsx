@@ -35,16 +35,16 @@ export default function CatalogoProductos() {
 
       <div className="row">
         {productos.map((prod) => (
-          <div key={prod.id_producto || prod.codigo} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div key={prod.id_producto || prod.codigo} className="col-12 col-sm-6 col-lg-3 mb-4">
             <Link to={`/producto/${prod.codigo}`} className="card-link text-decoration-none">
               <div className="card h-100 text-center p-3 shadow-sm">
                 <div className="img-box mb-2 d-flex align-items-center justify-content-center" style={{ height: '180px' }}>
                   <img src={prod.imagen_url} className="img-fluid" alt={prod.nombre} style={{ maxHeight: '100%', objectFit: 'contain' }}/>
                 </div>
-                <div className="card-body d-flex flex-column justify-content-between p-2">
-                  <h6 className="card-title text-bright">{prod.nombre}</h6>
-                  <div className="d-flex justify-content-between align-items-center mt-3">
-                    <span className="text-bright small">Stock: {prod.stock}</span>
+                <div className="justify-content-between">
+                  <h6>{prod.nombre}</h6>
+                  <div>
+                    <span>Stock: {prod.stock}</span>
                     
                     <div>
                       {prod.en_oferta === 1 && prod.porc_oferta > 0 ? (

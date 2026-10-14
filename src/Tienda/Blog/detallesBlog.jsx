@@ -1,22 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Card from 'react-bootstrap/Card';
 import './blog.css'
 
 export default function detallesBlog() {
+  const [blogs, setBlogs] = useState([]);
+  const [cargando, setCargando] = useState(true);
+
+  useEffect(() => {
+    const cargarBlogs = async () => {
+      try {
+        const res = await fetch(`/api/blogs/detalles/${blog_id}`);
+        const data = await res.json();
+  
+        if (data.ok) {
+          setBlogs(data.blogs || []);
+        }
+      } catch (e) {
+        console.error('Error al conectar con el servidor:', e);
+      } finally {
+        setCargando(false);
+      }
+    };
+
+    cargarBlogs();
+  }, []);
+
+  if (cargando) {
+    return <div style={{ padding: '20px' }}>Cargando blogs...</div>;
+  }
+
   return (
-    <>
-      <main >
-        <Card className="main-blog">
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title className="titulo-blog">Blog muy epico sobre musica</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        
-      </main>
-    </>
+    <div>
+      <div className="button-crear-blog">
+        <h2 className="titulo-pagina">Blogs</h2>
+      </div>
+        <div>
+          {blogs.map((blog) => (
+            <div key={blog.id}>
+              <Card className="estructura-blogs-inicio" >
+                <Card.Img src={blog.imagen_blog} className="tamano-imagen-blog"/>
+                <div>
+                  <Card.Title className="titulo-blog">{blog.titulo}</Card.Title>
+                </div>
+                <div>
+                  {blog.contenido}
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+    </div> 
   );
 }

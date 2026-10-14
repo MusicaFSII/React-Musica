@@ -36,6 +36,18 @@ def obtenerBlogs():
 
     return jsonify({"ok": True, "blogs": blogs})
 
+@app.get("/api/blogs/detalles/<string:blog_id>")
+def obtenerBlogsDetalles(blog_id):
+   query = "SELECT * FROM BLOGS WHERE blog_id = ?"
+   row = db.execute(query, (blog_id,)).fetchone()
+
+   if row is None:
+      return jsonify({"error":"Blog no encontrado."}), 404
+
+   diccionario = dict(row)
+
+   return jsonify(diccionario)
+
 @app.post("/api/blogs/agregar")
 def agregarBlogs():
   body = request.get_json() or {}
