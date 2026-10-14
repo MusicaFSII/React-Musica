@@ -110,6 +110,26 @@ export default function Blog() {
     }
   };
 
+  const controlELiminar = async (blog_id) =>{
+    if(!window.confirm('¿estás seguro que quieres eliminar el blog?')) return;
+
+    try{
+      const res = await fetch(`/api/blogs/eliminar/${blog_id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+
+      if(data.ok){
+        alert("El blog ha sido eliminado");
+        setBlogs(blogs.filter(b => b.blog_id !== blog_id));
+      }else{
+      alert(data.error || "No se pudo eliminar el blog")
+      }
+    }catch(error){
+      console.log("Error al eliminar el blog")
+    }
+  }
+
   if (cargando) {
     return <div style={{ padding: '20px' }}>Cargando blogs...</div>;
   }
@@ -184,21 +204,27 @@ export default function Blog() {
         <div>
           {blogs.map((blog) => (
             <div key={blog.id}>
-              <Link to={`/producto/${blog.blog_id}`} className="card-link text-decoration-none">
+              <Link to={`/blogs/${blog.blog_id}`}>
               <Card className="estructura-blogs-inicio" >
                 <Card.Img src={blog.imagen_blog} className="tamano-imagen-blog"/>
                 <div>
                   <Card.Title className="titulo-blog">{blog.titulo}</Card.Title>
-                  {esAdmin &&(
-                    <div>
-                      <Button variant="warning" onClick={() => activarEdicion(blog)}>
-                        Editar
-                      </Button>
-                    </div>
-                  )}
                 </div>
               </Card>
               </Link>
+
+              {esAdmin &&(
+                    <div className="separacion-botones-admin">
+                      <Button variant="warning" onClick={() => activarEdicion(blog)}>
+                        Editar
+                      </Button>
+                    
+                      <Button variant="danger" onClick={() => controlELiminar(blog.blog_id)}>
+                        Eliminar
+                      </Button>
+                    </div>
+                  )} 
+            
             </div>
           ))}
         </div>
